@@ -31,19 +31,26 @@ function Contact() {
               return (
                 <div
                   key={item.title}
-                  className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition hover:-translate-y-1 hover:shadow-glow"
+                  className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition hover:-translate-y-1 hover:shadow-glow"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-premiumGold/15 text-premiumGold">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-premiumGold/15 text-premiumGold shrink-0">
                     <Icon size={20} />
                   </span>
-                  <div>
+
+                  <div className="min-w-0">
                     <h3 className="text-sm font-semibold text-slate-900">{item.title}</h3>
+
                     {item.link ? (
-                      <a href={item.link} className="text-base font-medium text-premiumBlue hover:text-premiumGold">
+                      <a
+                        href={item.link}
+                        className="text-base font-medium text-premiumBlue hover:text-premiumGold break-words"
+                      >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-base font-medium text-slate-700">{item.value}</p>
+                      <p className="text-base font-medium text-slate-700 break-words">
+                        {item.value}
+                      </p>
                     )}
                   </div>
                 </div>
