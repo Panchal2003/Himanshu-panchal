@@ -21,32 +21,32 @@ function Navbar() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4 md:px-8">
-        <a href="#home" className="flex items-center gap-3 text-slate-900">
-          <div className="h-10 w-10 rounded-full bg-premiumGold flex items-center justify-center shadow-soft">
-            <span className="text-premiumBlue font-bold text-lg">B</span>
+        <a href="#home" className="flex items-center gap-2 text-slate-900 md:gap-3">
+          <div className="h-9 w-9 md:h-10 md:w-10 rounded-full bg-premiumGold flex items-center justify-center shadow-soft shrink-0">
+            <span className="text-premiumBlue font-bold text-base md:text-lg">B</span>
           </div>
-          <div>
-            <p className="font-bold text-lg tracking-wide">B Financial Solutions</p>
-            <p className="text-xs text-slate-500">Shri Radhey Enterprises</p>
+          <div className="overflow-hidden">
+            <p className="font-bold text-sm md:text-lg tracking-wide truncate">B Financial</p>
+            <p className="text-xs text-slate-500 hidden md:block">Shri Radhey Enterprises</p>
           </div>
         </a>
 
         <button
-          className="block rounded-md p-2 text-slate-700 md:hidden"
+          className="block rounded-md p-2 text-slate-700 md:hidden shrink-0"
           onClick={() => setOpen(!open)}
           aria-label="Toggle navigation"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        <nav className={`absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-lg md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent md:border-none md:shadow-none md:flex md:items-center ${open ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col gap-4 p-4 text-sm text-slate-700 md:flex-row md:gap-6 md:p-0 md:items-center">
+        <nav className={`absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent md:border-none md:shadow-none md:flex md:items-center ${open ? 'block' : 'hidden'}`}>
+          <ul className="flex flex-col p-4 text-sm text-slate-700 md:flex-row md:gap-6 md:p-0 md:items-center">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
                 <li key={item.href}>
-                  <a href={item.href} className="flex items-center gap-2 hover:text-premiumGold transition-all duration-300 py-2 md:py-0" onClick={() => setOpen(false)}>
-                    <Icon size={16} />
+                  <a href={item.href} className="flex items-center gap-2 hover:text-premiumGold transition-all duration-300 py-3 md:py-0 border-b border-slate-100 md:border-0" onClick={() => setOpen(false)}>
+                    <Icon size={18} />
                     {item.label}
                   </a>
                 </li>
@@ -55,7 +55,7 @@ function Navbar() {
           </ul>
           <a
             href="#contact"
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-premiumGold to-yellow-300 px-5 py-2 font-semibold text-premiumBlue shadow-soft hover:scale-105 hover:shadow-glow transition-all duration-300 md:ml-6 md:mt-0"
+            className="m-4 md:m-0 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-premiumGold to-yellow-300 px-5 py-2 font-semibold text-premiumBlue shadow-soft hover:scale-105 hover:shadow-glow transition-all duration-300 md:ml-6"
             onClick={() => setOpen(false)}
           >
             <Phone size={16} />
