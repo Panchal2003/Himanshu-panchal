@@ -13,7 +13,7 @@ function Owner() {
         >
           <div className="relative mb-6 h-44 w-44 overflow-hidden rounded-full border-4 border-premiumGold shadow-md md:mb-0">
             <img
-              src="/public/image.png"
+              src="image.png"
               alt="Himanshu Panchal"
               className="h-full w-full object-cover"
             />

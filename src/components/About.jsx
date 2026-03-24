@@ -79,7 +79,7 @@ function About() {
           >
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
               <img
-                src="/public/about1.png"
+                src="about1.png"
                 alt="Finance illustration"
                 className="h-64 w-full rounded-2xl object-cover"
               />
