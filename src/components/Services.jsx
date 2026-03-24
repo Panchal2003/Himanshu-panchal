@@ -54,17 +54,17 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="bg-blue-50 py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 sm:mb-8 text-center">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-premiumGold">What We Provide</p>
-          <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">Comprehensive Loan Services</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-600 text-sm sm:text-base">
+    <section id="services" className="bg-blue-50 py-16">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mb-8 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-premiumGold">What We Provide</p>
+          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Comprehensive Loan Services</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-slate-600">
             Customized finance solutions built for individuals and businesses — fast approval, transparent process, and expert support.
           </p>
         </div>
 
-        <div className="grid gap-4 sm:gap-5 lg:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -74,18 +74,18 @@ function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="overflow-hidden rounded-2xl sm:rounded-3xl shadow-soft transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                className="overflow-hidden rounded-3xl shadow-soft transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
               >
-                <div className={`bg-gradient-to-br ${service.color} p-4 sm:p-5`}>
-                  <Icon size={24} className="sm:size-28 text-premiumBlue" />
+                <div className={`h-18 bg-gradient-to-br ${service.color} p-5`}>
+                  <Icon size={28} className="text-premiumBlue" />
                 </div>
-                <div className="rounded-2xl sm:rounded-3xl rounded-tl-none bg-white p-4 sm:p-6 min-h-[280px] sm:min-h-[300px] flex flex-col justify-between">
+                <div className="rounded-3xl rounded-tl-none bg-white p-6 min-h-[300px] flex flex-col justify-between">
                   <div>
-                    <h3 className="mb-1.5 sm:mb-2 text-lg sm:text-xl font-bold tracking-tight text-premiumBlue border-l-4 border-premiumGold pl-2 sm:pl-3">
+                    <h3 className="mb-2 text-xl font-bold tracking-tight text-premiumBlue border-l-4 border-premiumGold pl-3">
                       {service.title}
                     </h3>
-                    <p className="mb-2 sm:mb-3 text-sm sm:text-base text-slate-700">{service.description}</p>
-                    <ul className="mb-3 sm:mb-4 space-y-0.5 sm:space-y-1 text-xs sm:text-sm text-slate-600">
+                    <p className="mb-3 text-base text-slate-700">{service.description}</p>
+                    <ul className="mb-4 space-y-1 text-sm text-slate-600">
                       {service.features.map((feat, i) => (
                         <li key={i}>• {feat}</li>
                       ))}
@@ -94,13 +94,13 @@ function Services() {
                   <div>
                     <a
                       href="#contact"
-                      className="inline-flex items-center justify-center rounded-full bg-premiumBlue px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-premiumGold hover:text-premiumBlue"
+                      className="inline-flex items-center justify-center rounded-full bg-premiumBlue px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-premiumGold hover:text-premiumBlue"
                     >
                       Learn More
                     </a>
-                    <div className="mt-3 sm:mt-5 flex items-center justify-between rounded-xl bg-slate-50 px-3 sm:px-4 py-2 sm:py-3">
+                    <div className="mt-5 flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3">
                       <span className="text-xs font-medium uppercase tracking-wide text-slate-500">Quick facts</span>
-                      <span className="rounded-full bg-premiumGold/20 px-2 sm:px-2.5 py-0.5 sm:py-1 text-xs font-semibold text-premiumGold">
+                      <span className="rounded-full bg-premiumGold/20 px-2.5 py-1 text-xs font-semibold text-premiumGold">
                         {service.quickFact}
                       </span>
                     </div>

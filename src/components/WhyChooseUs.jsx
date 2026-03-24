@@ -11,10 +11,10 @@ const features = [
 
 function WhyChooseUs() {
   return (
-    <section id="why" className="bg-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-6 sm:mb-8 text-center text-2xl sm:text-3xl font-bold text-slate-900">Why Choose Us</h2>
-        <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+    <section id="why" className="bg-white py-16">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">Why Choose Us</h2>
+        <div className="space-y-4">
         {features.map((f, idx) => {
           const Icon = f.icon;
           return (
@@ -24,12 +24,12 @@ function WhyChooseUs() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: idx * 0.08 }}
-              className={`flex items-center sm:flex-col sm:items-start lg:flex-row lg:items-center rounded-lg sm:rounded-xl p-4 sm:p-5 shadow-sm transition hover:shadow-md ${f.bgColor}`}
+              className={`flex items-center rounded-lg p-4 shadow-sm transition hover:shadow-md ${f.bgColor}`}
             >
-              <Icon size={28} className={`mr-3 sm:mr-0 sm:mb-3 lg:mr-3 ${f.iconColor}`} />
-              <div className="min-w-0">
-                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-slate-900">{f.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 hidden sm:block lg:text-base">{f.description}</p>
+              <Icon size={32} className={`mr-4 ${f.iconColor}`} />
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">{f.title}</h3>
+                <p className="text-slate-600">{f.description}</p>
               </div>
             </motion.div>
           );
