@@ -14,12 +14,15 @@ function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-between h-16 sm:h-18 lg:h-20">
         <a href="#home" className="flex items-center gap-2.5 group">
-          <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-gradient-to-br from-premiumGold to-amber-400 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-            <span className="text-white font-bold text-sm sm:text-base">B</span>
+          <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-premiumGold to-amber-400 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0">
+            <span className="text-white font-bold text-base sm:text-lg">B</span>
           </div>
-          <span className="font-bold text-sm sm:text-lg text-gray-800">B Financial</span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-bold text-sm sm:text-base lg:text-lg text-gray-800">B Financial Solutions</span>
+            <span className="text-[10px] sm:text-xs text-premiumGold font-medium">Shri Radhey Enterprises</span>
+          </div>
         </a>
 
         <div className="flex items-center gap-4 sm:gap-6">

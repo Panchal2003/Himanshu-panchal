@@ -43,7 +43,7 @@ function SplashScreen({ onComplete }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl font-bold text-white text-center px-4"
           >
-            B Finance
+           B Financial Solutions
           </motion.h1>
 
           {/* Tagline */}
