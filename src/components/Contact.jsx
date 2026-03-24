@@ -1,7 +1,71 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle, Mail, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+
+// Formspree form ID - submissions go to your email
+const FORMSPREE_FORM_ID = 'maqprkjz';
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    loanType: '',
+    message: ''
+  });
+  const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          loanType: formData.loanType,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          loanType: '',
+          message: ''
+        });
+        // Reset success message after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        const data = await response.json();
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    }
+  };
+
   return (
     <section id="contact" className="bg-slate-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -24,8 +88,8 @@ function Contact() {
             {[
               { icon: Phone, title: 'Phone', value: '8512045678' },
               { icon: MessageCircle, title: 'WhatsApp', value: '8512045678' },
-              { icon: Mail, title: 'Email', value: 'shruhan1190@gmail.com', link: 'mailto:shruhan1190@gmail.com' },
-              { icon: MapPin, title: 'Address', value: 'B 120, Gamma 1 Greater Noida' },
+              { icon: Mail, title: 'Email', value: 'b.financial.solutaions.01@gmail.com', link: 'mailto:b.financial.solutaions.01@gmail.com' },
+              { icon: MapPin, title: 'Address', value: 'B 102, Gamma 1, Greater Noida, Uttar Pradesh, India' },
             ].map((item) => {
               const Icon = item.icon;
               return (
@@ -61,7 +125,7 @@ function Contact() {
               <iframe
                 title="Office location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.264899832637!2d77.44925327574557!3d28.573713682460506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1946e531bee9%3A0xace54c7ddce9517f!2sGreater%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700834947104!5m2!1sen!2sin"
-                className="h-40 sm:h-48 w-full border-0"
+                className="h-56 sm:h-72 w-full border-0"
                 allowFullScreen=""
                 loading="lazy"
               />
@@ -74,26 +138,53 @@ function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
             className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 lg:p-8 shadow-soft"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <h3 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-semibold text-premiumBlue">Send a Message</h3>
+            
+            {/* Success Message */}
+            {status === 'success' && (
+              <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
+                <CheckCircle className="text-green-600 shrink-0" size={20} />
+                <p className="text-sm text-green-700">
+                  Thank you! Your message has been sent successfully. We will contact you soon.
+                </p>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {status === 'error' && (
+              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
+                <AlertCircle className="text-red-600 shrink-0" size={20} />
+                <p className="text-sm text-red-700">{errorMessage}</p>
+              </div>
+            )}
+
             <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
               <div>
                 <label className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-medium text-slate-700">Full Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 sm:px-4 py-2 outline-none transition focus:border-premiumGold focus:ring-2 focus:ring-premiumGold/30 text-sm"
                   placeholder="Your Name"
                   required
+                  disabled={status === 'submitting'}
                 />
               </div>
               <div>
                 <label className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-medium text-slate-700">Email Address</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 sm:px-4 py-2 outline-none transition focus:border-premiumGold focus:ring-2 focus:ring-premiumGold/30 text-sm"
                   placeholder="you@example.com"
                   required
+                  disabled={status === 'submitting'}
                 />
               </div>
             </div>
@@ -101,16 +192,24 @@ function Contact() {
               <label className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-medium text-slate-700">Phone Number</label>
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 sm:px-4 py-2 outline-none transition focus:border-premiumGold focus:ring-2 focus:ring-premiumGold/30 text-sm"
                 placeholder="Your Phone Number"
                 required
+                disabled={status === 'submitting'}
               />
             </div>
             <div className="mt-3 sm:mt-4">
               <label className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-medium text-slate-700">Loan Type</label>
               <select
+                name="loanType"
+                value={formData.loanType}
+                onChange={handleChange}
                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 sm:px-4 py-2 outline-none transition focus:border-premiumGold focus:ring-2 focus:ring-premiumGold/30 text-sm"
                 required
+                disabled={status === 'submitting'}
               >
                 <option value="">Select Loan Type</option>
                 <option value="personal">Personal Loan</option>
@@ -124,16 +223,25 @@ function Contact() {
             <div className="mt-3 sm:mt-4">
               <label className="mb-1.5 sm:mb-2 block text-xs sm:text-sm font-medium text-slate-700">Message</label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="h-24 sm:h-32 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 sm:px-4 py-2 outline-none transition focus:border-premiumGold focus:ring-2 focus:ring-premiumGold/30 text-sm"
                 placeholder="Describe your requirements"
                 required
+                disabled={status === 'submitting'}
               />
             </div>
             <button
               type="submit"
-              className="mt-4 sm:mt-5 w-full rounded-xl bg-gradient-to-r from-premiumGold to-yellow-300 px-4 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-premiumBlue shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
+              disabled={status === 'submitting'}
+              className={`mt-4 sm:mt-5 w-full rounded-xl bg-gradient-to-r from-premiumGold to-yellow-300 px-4 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-premiumBlue shadow-md transition ${
+                status === 'submitting' 
+                  ? 'opacity-70 cursor-not-allowed' 
+                  : 'hover:-translate-y-0.5 hover:shadow-lg'
+              }`}
             >
-              Submit Message
+              {status === 'submitting' ? 'Sending...' : 'Submit Message'}
             </button>
           </motion.form>
         </div>

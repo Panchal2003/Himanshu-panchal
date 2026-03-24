@@ -42,13 +42,13 @@ function Footer() {
               <li className="flex items-start gap-2">
                 <Mail size={12} className="sm:size-13 text-premiumGold shrink-0 mt-0.5" />
                 <a href="mailto:shruhan1190@gmail.com" className="hover:text-premiumGold transition-colors break-all">
-                  shruhan1190@gmail.com
+                 b.financial.solutaions.01@gmail.com
                 </a>
               </li>
 
               <li className="flex items-start gap-2">
                 <MapPin size={12} className="sm:size-13 text-premiumGold shrink-0 mt-0.5" />
-                <span className="break-words">B 120, Gamma 1 Greater Noida</span>
+                <span className="break-words">B 102, Gamma 1, Greater Noida, Uttar Pradesh, India</span>
               </li>
             </ul>
           </div>
