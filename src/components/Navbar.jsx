@@ -40,13 +40,13 @@ function Navbar() {
         </button>
 
         <nav className={`absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent md:border-none md:shadow-none md:flex md:items-center ${open ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col p-4 text-sm text-slate-700 md:flex-row md:gap-6 md:p-0 md:items-center">
+          <ul className="flex flex-col p-3 text-sm text-slate-700 md:flex-row md:gap-6 md:p-0 md:items-center">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
                 <li key={item.href}>
-                  <a href={item.href} className="flex items-center gap-2 hover:text-premiumGold transition-all duration-300 py-3 md:py-0 border-b border-slate-100 md:border-0" onClick={() => setOpen(false)}>
-                    <Icon size={18} />
+                  <a href={item.href} className="flex items-center gap-2 hover:text-premiumGold transition-all duration-300 py-2.5 md:py-0 border-b border-slate-100 md:border-0" onClick={() => setOpen(false)}>
+                    <Icon size={16} />
                     {item.label}
                   </a>
                 </li>
@@ -55,10 +55,10 @@ function Navbar() {
           </ul>
           <a
             href="#contact"
-            className="m-4 md:m-0 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-premiumGold to-yellow-300 px-5 py-2 font-semibold text-premiumBlue shadow-soft hover:scale-105 hover:shadow-glow transition-all duration-300 md:ml-6"
+            className="m-3 md:m-0 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-premiumGold to-yellow-300 px-4 py-1.5 font-semibold text-premiumBlue shadow-soft hover:scale-105 hover:shadow-glow transition-all duration-300 md:ml-6 text-sm"
             onClick={() => setOpen(false)}
           >
-            <Phone size={16} />
+            <Phone size={14} />
             Apply Now
           </a>
         </nav>
