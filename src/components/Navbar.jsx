@@ -1,68 +1,87 @@
 import { motion } from 'framer-motion';
-import { Home, User, Briefcase, FileText, Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
-const navItems = [
-  { label: 'Home', href: '#home', icon: Home },
-  { label: 'About', href: '#about', icon: User },
-  { label: 'Services', href: '#services', icon: Briefcase },
-  { label: 'Documents', href: '#documents', icon: FileText },
-  { label: 'Contact', href: '#contact', icon: Phone },
-];
+const navItems = ['Home', 'About', 'Services', 'Documents', 'Contact'];
 
 function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <motion.header
-      className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm"
+      className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm"
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between p-4 md:px-8">
-        <a href="#home" className="flex items-center gap-2 text-slate-900 md:gap-3">
-          <div className="h-9 w-9 md:h-10 md:w-10 rounded-full bg-premiumGold flex items-center justify-center shadow-soft shrink-0">
-            <span className="text-premiumBlue font-bold text-base md:text-lg">B</span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
+        <a href="#home" className="flex items-center gap-2.5 group">
+          <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-gradient-to-br from-premiumGold to-amber-400 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+            <span className="text-white font-bold text-sm sm:text-base">B</span>
           </div>
-          <div className="overflow-hidden">
-            <p className="font-bold text-sm md:text-lg tracking-wide truncate">B Financial</p>
-            <p className="text-xs text-slate-500 hidden md:block">Shri Radhey Enterprises</p>
-          </div>
+          <span className="font-bold text-sm sm:text-lg text-gray-800">B Financial</span>
         </a>
 
-        <button
-          className="block rounded-md p-2 text-slate-700 md:hidden shrink-0"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle navigation"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
-
-        <nav className={`absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent md:border-none md:shadow-none md:flex md:items-center ${open ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col p-3 text-sm text-slate-700 md:flex-row md:gap-6 md:p-0 md:items-center">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.href}>
-                  <a href={item.href} className="flex items-center gap-2 hover:text-premiumGold transition-all duration-300 py-2.5 md:py-0 border-b border-slate-100 md:border-0" onClick={() => setOpen(false)}>
-                    <Icon size={16} />
-                    {item.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <nav className="hidden lg:flex items-center gap-5">
+            {navItems.map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`} 
+                className="text-sm font-medium text-gray-500 hover:text-premiumGold transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-premiumGold hover:after:w-full after:transition-all"
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+          
           <a
             href="#contact"
-            className="m-3 md:m-0 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-premiumGold to-yellow-300 px-4 py-1.5 font-semibold text-premiumBlue shadow-soft hover:scale-105 hover:shadow-glow transition-all duration-300 md:ml-6 text-sm"
-            onClick={() => setOpen(false)}
+            className="hidden sm:flex items-center gap-1.5 rounded-full bg-gradient-to-r from-premiumGold to-amber-400 px-4 py-2 text-sm font-semibold text-white shadow-md hover:shadow-lg hover:scale-105 transition-all"
           >
             <Phone size={14} />
-            Apply Now
+            Apply
           </a>
-        </nav>
+
+          <button
+            className="lg:hidden p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle navigation"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
+
+      {open && (
+        <motion.div 
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          className="lg:hidden bg-white border-t border-gray-100"
+        >
+          <nav className="px-4 py-4 space-y-1">
+            {navItems.map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`} 
+                className="block py-2.5 px-3 text-sm font-medium text-gray-600 hover:text-premiumGold hover:bg-amber-50 rounded-lg transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="flex items-center justify-center gap-2 mt-4 rounded-xl bg-gradient-to-r from-premiumGold to-amber-400 px-4 py-2.5 text-sm font-semibold text-white shadow-md"
+              onClick={() => setOpen(false)}
+            >
+              <Phone size={14} />
+              Apply Now
+            </a>
+          </nav>
+        </motion.div>
+      )}
     </motion.header>
   );
 }

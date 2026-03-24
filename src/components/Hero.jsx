@@ -21,7 +21,7 @@ function Hero() {
     const timer = setInterval(() => {
       setDirection(1);
       setIndex((curr) => (curr + 1) % slides.length);
-    }, 2000); // 2 second auto slide
+    }, 2000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -35,30 +35,30 @@ function Hero() {
   };
 
   return (
-    <section id="home" className="relative bg-white pt-20 sm:pt-24 pb-6 overflow-hidden">
-      <div className="absolute -top-12 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-gradient-to-br from-premiumGold/30 via-blue-100/25 to-white blur-3xl" />
-      <div className="relative mx-auto grid max-w-7xl gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 md:grid-cols-2">
+    <section id="home" className="relative bg-white pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-10 lg:pb-12 overflow-hidden">
+      <div className="absolute -top-12 lg:-top-16 left-1/2 h-80 lg:h-96 w-80 lg:w-[500px] -translate-x-1/2 rounded-full bg-gradient-to-br from-premiumGold/30 via-blue-100/25 to-white blur-3xl" />
+      <div className="relative mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 lg:px-8 md:grid-cols-2 items-center">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="space-y-6"
+          className="space-y-4 sm:space-y-5 lg:space-y-6 text-center md:text-left"
         >
-          <p className="inline-flex items-center rounded-full bg-premiumGold/20 px-3 py-1 text-sm font-semibold text-premiumBlue">Trusted Lending Partner</p>
-          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl md:text-5xl">
+          <p className="inline-flex items-center rounded-full bg-premiumGold/20 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-premiumBlue">Trusted Lending Partner</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
             Your Trusted Partner for All Types of Loans
           </h1>
-          <p className="max-w-xl text-slate-600">
+          <p className="max-w-xl text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
             Fast approval, minimal documentation, and reliable service backed by expert financial advice.
           </p>
-          <div className="grid gap-2 text-sm text-slate-600 md:text-base">
-            <p>• 2-minute pre-approval process</p>
-            <p>• No hidden charges, full transparency</p>
-            <p>• Dedicated financial advisor support</p>
+          <div className="grid gap-2 text-xs sm:text-sm lg:text-base text-slate-600 md:text-left text-left">
+            <p className="flex items-center gap-2"><span className="text-premiumGold font-bold">✓</span> 2-minute pre-approval process</p>
+            <p className="flex items-center gap-2"><span className="text-premiumGold font-bold">✓</span> No hidden charges, full transparency</p>
+            <p className="flex items-center gap-2"><span className="text-premiumGold font-bold">✓</span> Dedicated financial advisor support</p>
           </div>
-          <div className="flex flex-wrap gap-3 pt-3">
-            <a href="#contact" className="rounded-xl bg-premiumGold px-6 py-3 font-semibold text-premiumBlue shadow-sm transition hover:shadow-md hover:-translate-y-0.5">Apply Now</a>
-            <a href="#about" className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-100">Learn More</a>
+          <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-3 justify-center md:justify-start">
+            <a href="#contact" className="rounded-xl bg-premiumGold px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-premiumBlue shadow-sm transition hover:shadow-md hover:-translate-y-0.5 text-sm sm:text-base">Apply Now</a>
+            <a href="#about" className="rounded-xl border border-slate-300 px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-slate-700 transition hover:bg-slate-100 text-sm sm:text-base">Learn More</a>
           </div>
         </motion.div>
 
@@ -66,7 +66,7 @@ function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="hidden md:block relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-0 shadow-soft h-[420px]"
+          className="hidden md:block relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-0 shadow-lg h-[360px] lg:h-[400px]"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-50 to-white" />
           <AnimatePresence mode="wait">
@@ -110,7 +110,7 @@ function Hero() {
               <button
                 key={dotIdx}
                 onClick={() => setIndex(dotIdx)}
-                className={`h-2.5 w-2.5 rounded-full ${index === dotIdx ? 'bg-premiumGold' : 'bg-white/70'}`}
+                className={`h-2.5 w-2.5 rounded-full transition ${index === dotIdx ? 'bg-premiumGold' : 'bg-white/70'}`}
                 aria-label={`Go to slide ${dotIdx + 1}`}
               />
             ))}
