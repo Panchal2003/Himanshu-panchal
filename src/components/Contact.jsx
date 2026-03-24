@@ -3,8 +3,8 @@ import { Phone, MessageCircle, Mail, MapPin } from 'lucide-react';
 
 function Contact() {
   return (
-    <section id="contact" className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <section id="contact" className="bg-slate-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-premiumGold">Get in touch</p>
           <h2 className="text-4xl font-bold text-premiumBlue md:text-5xl">Contact Us</h2>

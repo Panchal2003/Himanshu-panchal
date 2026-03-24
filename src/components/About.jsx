@@ -3,8 +3,8 @@ import { ShieldCheck, Clock, Users, Award, TrendingUp, Heart } from 'lucide-reac
 
 function About() {
   return (
-    <section id="about" className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <section id="about" className="bg-slate-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-premiumGold">Who we are</p>
           <h2 className="text-4xl font-bold text-premiumBlue md:text-5xl">About B Financial Solutions</h2>

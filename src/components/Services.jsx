@@ -54,8 +54,8 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="bg-blue-50 py-16">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <section id="services" className="bg-blue-50 py-12 sm:py-16 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-premiumGold">What We Provide</p>
           <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Comprehensive Loan Services</h2>

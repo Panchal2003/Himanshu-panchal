@@ -11,8 +11,8 @@ const features = [
 
 function WhyChooseUs() {
   return (
-    <section id="why" className="bg-white py-16">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <section id="why" className="bg-white py-12 sm:py-16 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">Why Choose Us</h2>
         <div className="space-y-4">
         {features.map((f, idx) => {

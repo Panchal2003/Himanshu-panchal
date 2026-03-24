@@ -13,6 +13,7 @@
 html, body, #root {
   min-height: 100%;
   background: #f8fafc;
+  overflow-x: hidden;
 }
 
 .glass {

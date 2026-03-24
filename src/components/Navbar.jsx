@@ -39,7 +39,7 @@ function Navbar() {
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        <nav className={`absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent md:border-none md:shadow-none md:flex md:items-center ${open ? 'block' : 'hidden'}`}>
+        <nav className={`absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent md:border-none md:shadow-none md:flex md:items-center ${open ? 'block' : 'hidden'}`}>
           <ul className="flex flex-col p-3 text-sm text-slate-700 md:flex-row md:gap-6 md:p-0 md:items-center">
             {navItems.map((item) => {
               const Icon = item.icon;

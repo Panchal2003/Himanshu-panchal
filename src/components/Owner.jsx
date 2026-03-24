@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 
 function Owner() {
   return (
-    <section id="owner" className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+    <section id="owner" className="bg-slate-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

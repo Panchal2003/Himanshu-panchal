@@ -35,9 +35,9 @@ function Hero() {
   };
 
   return (
-    <section id="home" className="relative bg-white pt-24 pb-6">
+    <section id="home" className="relative bg-white pt-20 sm:pt-24 pb-6 overflow-hidden">
       <div className="absolute -top-12 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-gradient-to-br from-premiumGold/30 via-blue-100/25 to-white blur-3xl" />
-      <div className="relative mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-2 md:px-8">
+      <div className="relative mx-auto grid max-w-7xl gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 md:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}

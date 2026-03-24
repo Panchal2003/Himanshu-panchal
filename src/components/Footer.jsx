@@ -2,8 +2,8 @@ import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin } from 'luc
 
 function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-8">
+    <footer className="bg-slate-900 text-slate-300 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Logo and Description */}
           <div className="md:col-span-1">
