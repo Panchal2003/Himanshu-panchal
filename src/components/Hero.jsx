@@ -63,11 +63,11 @@ function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-0 shadow-soft h-[420px]"
-        >
+  initial={{ opacity: 0, x: 40 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.7 }}
+  className="hidden md:block relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-0 shadow-soft h-[420px]"
+>
           <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-50 to-white" />
           <AnimatePresence mode="wait">
             <motion.img
