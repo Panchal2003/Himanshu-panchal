@@ -35,39 +35,39 @@ function Hero() {
   };
 
   return (
-    <section id="home" className="relative bg-white pt-24 pb-6">
+    <section id="home" className="relative bg-white pt-20 sm:pt-24 pb-6 sm:pb-8">
       <div className="absolute -top-12 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-gradient-to-br from-premiumGold/30 via-blue-100/25 to-white blur-3xl" />
-      <div className="relative mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-2 md:px-8">
+      <div className="relative mx-auto grid max-w-7xl gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 md:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="space-y-6"
+          className="space-y-4 sm:space-y-6 text-center md:text-left"
         >
-          <p className="inline-flex items-center rounded-full bg-premiumGold/20 px-3 py-1 text-sm font-semibold text-premiumBlue">Trusted Lending Partner</p>
-          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl md:text-5xl">
+          <p className="inline-flex items-center rounded-full bg-premiumGold/20 px-3 py-1 text-xs sm:text-sm font-semibold text-premiumBlue">Trusted Lending Partner</p>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900">
             Your Trusted Partner for All Types of Loans
           </h1>
-          <p className="max-w-xl text-slate-600">
+          <p className="max-w-xl text-slate-600 text-sm sm:text-base">
             Fast approval, minimal documentation, and reliable service backed by expert financial advice.
           </p>
-          <div className="grid gap-2 text-sm text-slate-600 md:text-base">
+          <div className="grid gap-1 sm:gap-2 text-xs sm:text-sm text-slate-600 md:text-base text-left">
             <p>• 2-minute pre-approval process</p>
             <p>• No hidden charges, full transparency</p>
             <p>• Dedicated financial advisor support</p>
           </div>
-          <div className="flex flex-wrap gap-3 pt-3">
-            <a href="#contact" className="rounded-xl bg-premiumGold px-6 py-3 font-semibold text-premiumBlue shadow-sm transition hover:shadow-md hover:-translate-y-0.5">Apply Now</a>
-            <a href="#about" className="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-100">Learn More</a>
+          <div className="flex flex-wrap gap-3 pt-2 sm:pt-3 justify-center md:justify-start">
+            <a href="#contact" className="rounded-xl bg-premiumGold px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-premiumBlue shadow-sm transition hover:shadow-md hover:-translate-y-0.5 text-sm sm:text-base">Apply Now</a>
+            <a href="#about" className="rounded-xl border border-slate-300 px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-slate-700 transition hover:bg-slate-100 text-sm sm:text-base">Learn More</a>
           </div>
         </motion.div>
 
         <motion.div
-  initial={{ opacity: 0, x: 40 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.7 }}
-  className="hidden md:block relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-0 shadow-soft h-[420px]"
->
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="hidden lg:block relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-0 shadow-soft h-[420px]"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-50 to-white" />
           <AnimatePresence mode="wait">
             <motion.img
