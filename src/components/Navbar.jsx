@@ -20,7 +20,7 @@ function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="mx-auto flex items-center justify-between p-4 md:max-w-7xl md:px-8">
+      <div className="mx-auto flex items-center justify-between p-4 w-[95%] sm:w-full md:max-w-7xl md:px-8">
         <a href="#home" className="flex items-center gap-3 text-slate-900">
           <div className="h-10 w-10 rounded-full bg-premiumGold flex items-center justify-center shadow-soft">
             <span className="text-premiumBlue font-bold text-lg">B</span>
