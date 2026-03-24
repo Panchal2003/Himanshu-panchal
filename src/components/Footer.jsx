@@ -34,17 +34,23 @@ function Footer() {
           <div>
             <h5 className="mb-4 text-lg font-semibold text-white">Contact Info</h5>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-premiumGold" />
+              <li className="flex items-start gap-2">
+                <Phone size={16} className="text-premiumGold shrink-0" />
                 <span>8512045678</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-premiumGold" />
-                <a href="mailto:shruhan1190@gmail.com" className="hover:text-premiumGold transition">shruhan1190@gmail.com</a>
+
+              <li className="flex items-start gap-2">
+                <Mail size={16} className="text-premiumGold shrink-0" />
+                <a href="mailto:shruhan1190@gmail.com" className="hover:text-premiumGold transition break-words">
+                  shruhan1190@gmail.com
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin size={16} className="text-premiumGold" />
-                <span>B 120, Gamma 1 Greater Noida</span>
+
+              <li className="flex items-start gap-2">
+                <MapPin size={16} className="text-premiumGold shrink-0" />
+                <span className="break-words">
+                  B 120, Gamma 1 Greater Noida
+                </span>
               </li>
             </ul>
           </div>
